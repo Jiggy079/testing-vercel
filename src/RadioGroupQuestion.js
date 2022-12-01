@@ -7,13 +7,13 @@ import FormLabel from '@mui/material/FormLabel';
 
 function getQuestionsContent(questions) {
     let questionsList = [];
-    for (let key in questions) {
-        questionsList.push(<FormControlLabel value={key.value} control={<Radio />} label={key.label} />);
+    for (let [value, label] of Object.entries(questions)) {
+        questionsList.push(<FormControlLabel value={value} control={<Radio />} label={label} />);
     }
     return questionsList;
 }
 
-function RowRadioGroupQuestion([title, formName, questions]) {
+function RowRadioGroupQuestion({title, formName, questions}) {
     
     return (
         <FormControl>
