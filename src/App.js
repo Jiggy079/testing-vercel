@@ -69,10 +69,12 @@ class App extends React.Component {
         document.title = "Figure Viewer";
         let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
         let testQuestion = {
-            "yes": "Yes",
-            "no": "No"
+            option: {value: "yes",
+                    label: "Yes"},
+            option: {value: "no",
+                    label: "No"}
         }
-        
+
         return (
             <div className="App">
                 <div className="metadata">
