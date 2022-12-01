@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Figure from "./Figure";
+import RowRadioGroupQuestion from './RadioGroupQuestion';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -67,6 +68,11 @@ class App extends React.Component {
     render() {
         document.title = "Figure Viewer";
         let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
+        let testQuestion = {
+            "yes": "Yes",
+            "no": "No"
+        }
+        
         return (
             <div className="App">
                 <div className="metadata">
@@ -80,6 +86,9 @@ class App extends React.Component {
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
+                <div>
+                    <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
+                </div>
             </div>
         );
     }
