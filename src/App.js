@@ -80,12 +80,12 @@ class App extends React.Component {
         
         return (
             <div className="App">
-                <Button variant="outlined" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
+                <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
                 <div className="Figure">
                     <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
-                <Button variant="outlined" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
+                <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
                 <div>
                     <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
                 </div>
