@@ -43,3 +43,8 @@ img {
 .metadata {
   margin: 10px;
 }
+
+.enlargedFigure {
+  max-width: 100%;
+  max-height: 100%;
+}
