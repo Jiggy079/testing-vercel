@@ -9,14 +9,14 @@ function Questions() {
 		"no": "No"
 	}
 	return (
-		<Grid container spacing={2}>
+		<Grid sx={{flexGrow: 2}} container spacing={2}>
 			<Grid item xs={6}>
-				<Paper sx={{height: 400, width:300, backgroundColor: '#1A2027'}}>
+				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
 					<RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
 				</Paper>
 			</Grid>
 			<Grid item xs={6}>
-				<Paper sx={{height: 400, width:300, backgroundColor: '#1A2027'}}>
+				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
 					<p>test</p>
 				</Paper>
 			</Grid>
