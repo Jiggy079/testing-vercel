@@ -14,6 +14,11 @@ class Figure extends React.Component{
 		 this.handleClose = this.handleClose.bind(this);
 	}
 
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		this.setState({imgUrl: this.props.imgUrl,
+							currentFigureIndex: this.props.currentFigureIndex})
+	}
+
 	handleClose() {
 		this.setState(({open: false}));
 	}
