@@ -7,7 +7,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import CircularProgress from '@mui/material/CircularProgress';
 
 class App extends React.Component {
@@ -77,22 +79,17 @@ class App extends React.Component {
         }
         
         return (
-                <div className="App">
-                <div className="metadata">
-                    <p>Title: {figureInfo.name}</p>
-                    <p>Year: {figureInfo.year}</p>
-                    <p>DOI: {figureInfo.doi}</p>
-                </div>
-                <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
+            <div className="App">
+                <Button variant="outlined" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
                 <div className="Figure">
                     <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
-                <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
+                <Button variant="outlined" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
                 <div>
                     <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
                 </div>
-                </div>
+            </div>
         );
     }
 }
