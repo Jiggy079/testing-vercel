@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import RowRadioGroupQuestion from "./RadioGroupQuestion";
 
 function Questions() {
@@ -8,11 +9,18 @@ function Questions() {
 		"no": "No"
 	}
 	return (
-		<div>
-			<Paper>
-			<RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
-			</Paper>
-		</div>
+		<Grid container spacing={2}>
+			<Grid item xs={6}>
+				<Paper>
+					<RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
+				</Paper>
+			</Grid>
+			<Grid item xs={6}>
+				<Paper>
+					<p>test</p>
+				</Paper>
+			</Grid>
+		</Grid>
 	);
 }
 
