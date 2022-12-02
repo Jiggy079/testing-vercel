@@ -11,12 +11,12 @@ function Questions() {
 	return (
 		<Grid container spacing={2}>
 			<Grid item xs={6}>
-				<Paper>
+				<Paper sx={{height: 400, width:300, backgroundColor: '#1A2027'}}>
 					<RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
 				</Paper>
 			</Grid>
 			<Grid item xs={6}>
-				<Paper>
+				<Paper sx={{height: 400, width:300, backgroundColor: '#1A2027'}}>
 					<p>test</p>
 				</Paper>
 			</Grid>
