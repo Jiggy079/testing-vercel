@@ -7,6 +7,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
@@ -80,6 +81,7 @@ class App extends React.Component {
         
         return (
             <div className="App">
+                <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
                 <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
                 <div className="Figure">
                     <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
@@ -89,6 +91,7 @@ class App extends React.Component {
                 <div>
                     <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
                 </div>
+                </Stack>
             </div>
         );
     }
