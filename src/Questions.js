@@ -20,6 +20,26 @@ function Questions() {
 					<p>test</p>
 				</Paper>
 			</Grid>
+			<Grid item xs={6}>
+				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
+					<p>test</p>
+				</Paper>
+			</Grid>
+			<Grid item xs={6}>
+				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
+					<p>test</p>
+				</Paper>
+			</Grid>
+			<Grid item xs={6}>
+				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
+					<p>test</p>
+				</Paper>
+			</Grid>
+			<Grid item xs={6}>
+				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
+					<p>test</p>
+				</Paper>
+			</Grid>
 		</Grid>
 	);
 }
