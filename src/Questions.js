@@ -9,7 +9,7 @@ function Questions() {
 		"no": "No"
 	}
 	return (
-		<Grid sx={{flexGrow: 2}} container spacing={2}>
+		<Grid sx={{flexGrow: 1}} container spacing={2}>
 			<Grid item xs={6}>
 				<Paper sx={{backgroundColor: '#1A2027', color:'#61dafb'}}>
 					<RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
