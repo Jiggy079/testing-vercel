@@ -7,6 +7,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -59,7 +62,7 @@ class App extends React.Component {
 
     getImgURL(index) {
         if (!this.state.figuresLoaded) {
-            return "https://i.imgur.com/llF5iyg.gif";
+            return <CircularProgress />;
         } else {
             return this.state.figures["in"][index]["url"];
         }
@@ -74,7 +77,7 @@ class App extends React.Component {
         }
         
         return (
-            <div className="App">
+                <Box>
                 <div className="metadata">
                     <p>Title: {figureInfo.name}</p>
                     <p>Year: {figureInfo.year}</p>
@@ -89,7 +92,7 @@ class App extends React.Component {
                 <div>
                     <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
                 </div>
-            </div>
+                </Box>
         );
     }
 }
