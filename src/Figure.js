@@ -1,10 +1,36 @@
-function Figure({imgUrl, currentFigureIndex}) {
-	return (
-		<div className="Figure">
-			<img src={imgUrl} alt={"Figure"}/>
-			<p id={"figure-label"}>Figure {currentFigureIndex + 1}</p>
-		</div>
-	);
+import React from 'react';
+import Button from '@mui/material/Button';
+import Backdrop from '@mui/material/Backdrop';
+
+class Figure extends React.Component{
+	constructor({imgUrl, currentFigureIndex}) {
+		super(imgUrl, currentFigureIndex);
+		 this.state = {
+			 open: false
+		 };
+	}
+
+	handleClose() {
+		this.setState(({open: false}));
+	}
+
+	handleToggle() {
+		this.setState({open: !this.state.open});
+	}
+
+	render() {
+		return (
+			<div className="Figure">
+				<Button onClick={this.handleToggle}>
+				<img src={imgUrl} alt={"Figure"}/>
+				</Button>
+				<Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={this.state.open} onClick={this.handleClose}>
+					<h1>hello</h1>
+				</Backdrop>
+				<p id={"figure-label"}>Figure {currentFigureIndex + 1}</p>
+			</div>
+		);
+	}
 }
 
 export default Figure;
