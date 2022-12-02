@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
 import Figure from "./Figure";
-import RowRadioGroupQuestion from './RadioGroupQuestion';
+import Questions from "./Questions";
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
+
 
 class App extends React.Component {
     constructor(props) {
@@ -74,11 +75,8 @@ class App extends React.Component {
 
     render() {
         document.title = "Figure Viewer";
-        let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
-        let testQuestion = {
-            "yes": "Yes",
-            "no": "No"
-        }
+        // let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
+
         
         return (
             <div className="App">
@@ -87,9 +85,7 @@ class App extends React.Component {
                 <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)} currentFigureIndex={this.state.currentFigureIndex} />
                 <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
                 <Divider orientation="vertical" flexItem />
-                <div>
-                    <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
-                </div>
+                <Questions />
                 </Stack>
             </div>
         );
