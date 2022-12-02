@@ -67,7 +67,7 @@ class App extends React.Component {
 
     getImgURL(index) {
         if (!this.state.figuresLoaded) {
-            return <CircularProgress />;
+            return "https://i.imgur.com/llF5iyg.gif";
         } else {
             return this.state.figures["in"][index]["url"];
         }
@@ -77,7 +77,6 @@ class App extends React.Component {
         document.title = "Figure Viewer";
         // let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
 
-        
         return (
             <div className="App">
                 <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
