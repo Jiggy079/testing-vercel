@@ -10,6 +10,8 @@ class Figure extends React.Component{
 			 imgUrl: imgUrl,
 			 currentFigureIndex: currentFigureIndex
 		 };
+		 this.handleToggle = this.handleToggle.bind(this);
+		 this.handleClose = this.handleClose.bind(this);
 	}
 
 	handleClose() {
