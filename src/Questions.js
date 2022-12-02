@@ -1,4 +1,5 @@
 import React from 'react';
+import Paper from '@mui/material/Paper';
 import RowRadioGroupQuestion from "./RadioGroupQuestion";
 
 function Questions() {
@@ -8,7 +9,9 @@ function Questions() {
 	}
 	return (
 		<div>
+			<Paper>
 			<RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
+			</Paper>
 		</div>
 	);
 }
