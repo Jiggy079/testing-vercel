@@ -77,7 +77,7 @@ class App extends React.Component {
         }
         
         return (
-                <Box>
+                <div className="App">
                 <div className="metadata">
                     <p>Title: {figureInfo.name}</p>
                     <p>Year: {figureInfo.year}</p>
@@ -92,7 +92,7 @@ class App extends React.Component {
                 <div>
                     <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
                 </div>
-                </Box>
+                </div>
         );
     }
 }
