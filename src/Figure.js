@@ -1,6 +1,9 @@
-function Figure({imgUrl}) {
+function Figure({imgUrl, currentFigureIndex}) {
 	return (
-		<img src={imgUrl} alt={"Figure"}/>
+		<div className="Figure">
+			<img src={imgUrl} alt={"Figure"}/>
+			<p id={"figure-label"}>Figure {currentFigureIndex + 1}</p>
+		</div>
 	);
 }
 

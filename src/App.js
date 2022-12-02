@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import CircularProgress from '@mui/material/CircularProgress';
+import Divider from '@mui/material/Divider';
 
 class App extends React.Component {
     constructor(props) {
@@ -83,11 +84,9 @@ class App extends React.Component {
             <div className="App">
                 <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
                 <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
-                <div className="Figure">
-                    <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
-                    <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
-                </div>
+                <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)} currentFigureIndex={this.state.currentFigureIndex} />
                 <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
+                <Divider orientation="vertical" flexItem />
                 <div>
                     <RowRadioGroupQuestion title="Test question" formName="test" questions={testQuestion} />
                 </div>
