@@ -69,7 +69,8 @@ function Questions() {
 			<Grid item xs={6}>
 				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
 					<CardContent>
-						<TextField id="outlined-number" label="Q5. How many colour values are used?" type="number" name="question5" InputLabelProps={{shrink: true,}} />
+						<p className="questionLabel">Q5. How many colour values are used?</p>
+						<TextField id="outlined-number" label="Enter a number" type="number" name="question5" InputLabelProps={{shrink: true,}} />
 					</CardContent>
 				</Card>
 			</Grid>
