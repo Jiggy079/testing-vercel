@@ -39,35 +39,35 @@ function Questions() {
 	return (
 		<Grid sx={{flexGrow: 1}} container spacing={2}>
 			<Grid item xs={6}>
-				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
+				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 					<CardContent>
 						<RowRadioGroupQuestion title="Q1. What type of colour is used?" formName="question1" question={question1} />
 					</CardContent>
 				</Card>
 			</Grid>
 			<Grid item xs={6}>
-				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
+				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 					<CardContent>
 						<RowRadioGroupQuestion title="Q2. Is colour used for aesthetics or data visualisation?" formName="question2" question={question2} />
 					</CardContent>
 				</Card>
 			</Grid>
 			<Grid item xs={6}>
-				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
+				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 					<CardContent>
 						<RowRadioGroupQuestion title="Q3. Is a colour mapping legend shown?" formName="question3" question={question3} />
 					</CardContent>
 				</Card>
 			</Grid>
 			<Grid item xs={6}>
-				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
+				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 					<CardContent>
 						<RowRadioGroupQuestion title="Q4. Is the colour mapping continuous or categorical?" formName="question4" question={question4} />
 					</CardContent>
 				</Card>
 			</Grid>
 			<Grid item xs={6}>
-				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
+				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 					<CardContent>
 						<p className="questionLabel">Q5. How many colour values are used?</p>
 						<TextField id="outlined-number" label="Enter a number" type="number" name="question5" InputLabelProps={{shrink: true,}} />
@@ -75,7 +75,7 @@ function Questions() {
 				</Card>
 			</Grid>
 			<Grid item xs={6}>
-				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
+				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 					<CardContent>
 						<RowRadioGroupQuestion title="Q6. How difficult was this image to annotate? (1 being easy and 5 being hard)" formName="question6" question={question6} />
 					</CardContent>
