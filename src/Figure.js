@@ -43,12 +43,13 @@ class Figure extends React.Component{
 				<Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={this.state.open} onClick={this.handleClose}>
 					<img src={this.state.imgUrl} alt={"Enlarged figure"} className="enlargedFigure" />
 				</Backdrop>
-				<p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
-				<Tooltip title={this.state.currentFigureMetadata.name} placement="top" arrow>
-					<IconButton>
-						<QuestionMarkIcon />
-					</IconButton>
-				</Tooltip>
+				<p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}
+					<Tooltip title={this.state.currentFigureMetadata.name} placement="top" arrow>
+						<IconButton>
+							<QuestionMarkIcon />
+						</IconButton>
+					</Tooltip>
+				</p>
 			</div>
 		);
 	}
