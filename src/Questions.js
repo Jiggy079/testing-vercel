@@ -76,7 +76,7 @@ function Questions() {
 			<Grid item xs={6}>
 				<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 150}}>
 					<CardContent>
-						<RowRadioGroupQuestion title="Q6. How difficult was this image to annotate? (1 being easy and 5 beind hard)" formName="question6" question={question6} />
+						<RowRadioGroupQuestion title="Q6. How difficult was this image to annotate? (1 being easy and 5 being hard)" formName="question6" question={question6} />
 					</CardContent>
 				</Card>
 			</Grid>
