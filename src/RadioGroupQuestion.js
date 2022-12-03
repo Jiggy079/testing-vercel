@@ -5,21 +5,21 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-function getQuestionsContent(questions) {
+function getQuestionsContent(question) {
     let questionsList = [];
-    for (let [value, label] of Object.entries(questions)) {
+    for (let [value, label] of Object.entries(question)) {
         questionsList.push(<FormControlLabel value={value} control={<Radio />} label={label} />);
     }
     return questionsList;
 }
 
-function RowRadioGroupQuestion({title, formName, questions}) {
+function RowRadioGroupQuestion({title, formName, question}) {
     
     return (
         <FormControl>
           <FormLabel>{title}</FormLabel>
           <RadioGroup row name={formName}>
-            {getQuestionsContent(questions)}
+            {getQuestionsContent(question)}
           </RadioGroup>
         </FormControl>
       );
