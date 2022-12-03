@@ -17,7 +17,7 @@ function RowRadioGroupQuestion({title, formName, question}) {
     
     return (
         <FormControl>
-          <FormLabel><span> className="questionLabel" {title}</span></FormLabel>
+          <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
           <RadioGroup row name={formName}>
             {getQuestionsContent(question)}
           </RadioGroup>
