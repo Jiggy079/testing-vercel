@@ -75,13 +75,15 @@ class App extends React.Component {
 
     render() {
         document.title = "Figure Viewer";
-        // let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
+        let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
 
         return (
             <div className="App">
                 <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
                 <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
-                <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)} currentFigureIndex={this.state.currentFigureIndex} />
+                <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}
+                        currentFigureIndex={this.state.currentFigureIndex}
+                        currentFigureMetadata={figureInfo}/>
                 <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
                 <Divider orientation="vertical" flexItem />
                 <Questions />

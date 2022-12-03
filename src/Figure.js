@@ -1,14 +1,18 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
+import Tooltip from '@mui/material/Tooltip';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import IconButton from '@mui/material/IconButton';
 
 class Figure extends React.Component{
-	constructor({imgUrl, currentFigureIndex}) {
+	constructor({imgUrl, currentFigureIndex, currentFigureMetadata}) {
 		super(imgUrl, currentFigureIndex);
 		 this.state = {
 			 open: false,
 			 imgUrl: imgUrl,
-			 currentFigureIndex: currentFigureIndex
+			 currentFigureIndex: currentFigureIndex,
+			 currentFigureMetadata: currentFigureMetadata
 		 };
 		 this.handleToggle = this.handleToggle.bind(this);
 		 this.handleClose = this.handleClose.bind(this);
@@ -17,7 +21,8 @@ class Figure extends React.Component{
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props !== prevProps) {
 			this.setState({imgUrl: this.props.imgUrl,
-				currentFigureIndex: this.props.currentFigureIndex})
+				currentFigureIndex: this.props.currentFigureIndex,
+				currentFigureMetadata: this.props.currentFigureMetadata})
 		}
 	}
 
@@ -39,6 +44,11 @@ class Figure extends React.Component{
 					<img src={this.state.imgUrl} alt={"Enlarged figure"} className="enlargedFigure" />
 				</Backdrop>
 				<p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
+				<Tooltip title={this.state.currentFigureMetadata.name} placement="top" arrow>
+					<IconButton>
+						<QuestionMarkIcon />
+					</IconButton>
+				</Tooltip>
 			</div>
 		);
 	}

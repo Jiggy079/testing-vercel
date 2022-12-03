@@ -36,7 +36,6 @@ function Questions() {
 		"5": "5"
 	}
 
-
 	return (
 		<Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
 			<Grid sx={{flexGrow: 1}} container spacing={2}>
