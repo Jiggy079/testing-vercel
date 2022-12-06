@@ -44,7 +44,9 @@ class Figure extends React.Component{
 					<img src={this.state.imgUrl} alt={"Enlarged figure"} className="enlargedFigure" />
 				</Backdrop>
 				<p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}
-					<Tooltip title={this.state.currentFigureMetadata.name} placement="top" arrow>
+					<Tooltip title={this.state.currentFigureMetadata.name + "<br>" +
+									this.state.currentFigureMetadata.doi + "<br>" + this.state.currentFigureMetadata.year}
+							 		placement="top" arrow>
 						<IconButton>
 							<InfoIcon />
 						</IconButton>
