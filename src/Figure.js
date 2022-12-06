@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
 import Tooltip from '@mui/material/Tooltip';
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 
 class Figure extends React.Component{
@@ -46,7 +46,7 @@ class Figure extends React.Component{
 				<p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}
 					<Tooltip title={this.state.currentFigureMetadata.name} placement="top" arrow>
 						<IconButton>
-							<QuestionMarkIcon />
+							<InfoIcon />
 						</IconButton>
 					</Tooltip>
 				</p>
