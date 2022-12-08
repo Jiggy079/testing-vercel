@@ -4,6 +4,7 @@ import Backdrop from '@mui/material/Backdrop';
 import Tooltip from '@mui/material/Tooltip';
 import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
 
 class Figure extends React.Component{
 	constructor({imgUrl, currentFigureIndex, currentFigureMetadata}) {
