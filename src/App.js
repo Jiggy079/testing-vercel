@@ -34,7 +34,7 @@ class App extends React.Component {
                     currentFigure: res,
                 });
             });
-        console.log(this.state.currentFigure);
+        console.log(this.state.currentFigure[0]["name"]);
     }
 
     componentDidMount() {
