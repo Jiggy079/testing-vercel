@@ -11,7 +11,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
 
 
@@ -19,22 +18,33 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            figures : [],
+            currentFigure : [],
             currentFigureIndex: 0,
             figuresLoaded: false
         };
         this.changeFigure = this.changeFigure.bind(this);
+        this.getCurrentFigure = this.getCurrentFigure.bind(this);
     }
 
-    componentDidMount() {
-        fetch("https://files.catbox.moe/7dvpgw.json")
+    getCurrentFigure() {
+        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + (this.state.currentFigureIndex + 1))
             .then(res => res.json())
             .then((res) => {
                 this.setState({
-                    figures: res,
+                    currentFigure: res,
+                });
+            });
+    }
+
+    componentDidMount() {
+        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + (this.state.currentFigureIndex + 1))
+            .then(res => res.json())
+            .then((res) => {
+                this.setState({
+                    currentFigure: res,
                     figuresLoaded: true
-                })
-            })
+                });
+            });
     }
 
     changeFigure(increment) {
@@ -51,42 +61,43 @@ class App extends React.Component {
                 this.setState({currentFigureIndex: this.state.currentFigureIndex - 1});
             }
         }
+        this.getCurrentFigure();
     }
 
-    getFigureInfo(index) {
+    getFigureInfo() {
         if (!this.state.figuresLoaded) {
             return {name: "",
-                    doi: "",
-                    year: ""};
+                doi: "",
+                year: ""};
         } else {
-            return {name: this.state.figures["in"][index]["name"],
-                    doi: this.state.figures["in"][index]["doi"],
-                    year: this.state.figures["in"][index]["year"]};
+            return {name: this.state.currentFigure["name"],
+                doi: this.state.currentFigure["doi"],
+                year: this.state.currentFigure["year"]};
         }
     }
 
-    getImgURL(index) {
+    getImgURL() {
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
-            return this.state.figures["in"][index]["url"];
+            return this.state.currentFigure["url"];
         }
     }
 
     render() {
         document.title = "Figure Viewer";
-        let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
+        let figureInfo = this.getFigureInfo();
 
         return (
             <div className="App">
                 <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
-                <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
-                <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}
-                        currentFigureIndex={this.state.currentFigureIndex}
-                        currentFigureMetadata={figureInfo}/>
-                <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
-                <Divider orientation="vertical" flexItem />
-                <Questions />
+                    <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
+                    <Figure imgUrl={this.getImgURL()}
+                            currentFigureIndex={this.state.currentFigureIndex}
+                            currentFigureMetadata={figureInfo}/>
+                    <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
+                    <Divider orientation="vertical" flexItem />
+                    <Questions />
                 </Stack>
             </div>
         );
