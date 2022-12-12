@@ -34,6 +34,7 @@ class App extends React.Component {
                     currentFigure: res,
                 });
             });
+        console.log(this.state.currentFigure);
     }
 
     componentDidMount() {
@@ -45,6 +46,7 @@ class App extends React.Component {
                     figuresLoaded: true
                 });
             });
+        console.log(this.state.currentFigure);
     }
 
     changeFigure(increment) {
