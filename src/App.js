@@ -18,7 +18,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentFigure : {},
+            currentFigure : null,
             currentFigureIndex: 0,
             figuresLoaded: false
         };
@@ -34,7 +34,7 @@ class App extends React.Component {
                     currentFigure: res,
                 });
             });
-        console.log(this.state.currentFigure[0]["name"]);
+        console.log(this.state.currentFigure);
     }
 
     componentDidMount() {
