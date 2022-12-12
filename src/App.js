@@ -27,6 +27,7 @@ class App extends React.Component {
     }
 
     updateFigure(newIndex) {
+        console.log("previous index:" + this.state.currentFigureIndex);
         fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex)
             .then(res => res.json())
             .then((res) => {
@@ -35,6 +36,7 @@ class App extends React.Component {
                     currentFigureIndex: newIndex
                 });
             });
+        console.log("new index:" + this.state.currentFigureIndex);
     }
 
     componentDidMount() {
