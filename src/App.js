@@ -23,15 +23,16 @@ class App extends React.Component {
             figuresLoaded: false
         };
         this.changeFigure = this.changeFigure.bind(this);
-        this.getCurrentFigure = this.getCurrentFigure.bind(this);
+        this.updateFigure = this.updateFigure.bind(this);
     }
 
-    getCurrentFigure() {
+    updateFigure(newIndex) {
         fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex)
             .then(res => res.json())
             .then((res) => {
                 this.setState({
                     currentFigure: res,
+                    currentFigureIndex: newIndex
                 });
             });
     }
@@ -50,18 +51,17 @@ class App extends React.Component {
     changeFigure(increment) {
         if (increment === true) {
             if (this.state.currentFigureIndex === 29688) {
-                this.setState({currentFigureIndex: 1});
+                this.updateFigure(1)
             } else {
-                this.setState({currentFigureIndex: this.state.currentFigureIndex + 1});
+                this.updateFigure(this.state.currentFigureIndex + 1);
             }
         } else {
             if (this.state.currentFigureIndex === 1) {
-                this.setState({currentFigureIndex: 29688});
+                this.updateFigure(29688);
             } else {
-                this.setState({currentFigureIndex: this.state.currentFigureIndex - 1});
+                this.updateFigure(this.state.currentFigureIndex - 1);
             }
         }
-        this.getCurrentFigure();
     }
 
     getFigureInfo() {
