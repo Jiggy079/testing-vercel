@@ -31,10 +31,9 @@ class App extends React.Component {
             .then(res => res.json())
             .then((res) => {
                 this.setState({
-                    currentFigure: res[0],
+                    currentFigure: res,
                 });
             });
-        console.log(this.state.currentFigure);
     }
 
     componentDidMount() {
@@ -42,11 +41,10 @@ class App extends React.Component {
             .then(res => res.json())
             .then((res) => {
                 this.setState({
-                    currentFigure: res[0],
+                    currentFigure: res,
                     figuresLoaded: true
                 });
             });
-        console.log(this.state.currentFigure);
     }
 
     changeFigure(increment) {
@@ -72,9 +70,9 @@ class App extends React.Component {
                 doi: "",
                 year: ""};
         } else {
-            return {name: this.state.currentFigure["name"],
-                doi: this.state.currentFigure["doi"],
-                year: this.state.currentFigure["year"]};
+            return {name: this.state.currentFigure[0]["name"],
+                doi: this.state.currentFigure[0]["doi"],
+                year: this.state.currentFigure[0]["year"]};
         }
     }
 
@@ -82,7 +80,7 @@ class App extends React.Component {
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
-            return this.state.currentFigure["url"];
+            return this.state.currentFigure[0]["url"];
         }
     }
 
