@@ -19,7 +19,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             currentFigure : null,
-            currentFigureIndex: 0,
+            currentFigureIndex: 1,
             figuresLoaded: false
         };
         this.changeFigure = this.changeFigure.bind(this);
@@ -27,7 +27,7 @@ class App extends React.Component {
     }
 
     getCurrentFigure() {
-        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + (this.state.currentFigureIndex + 1))
+        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex)
             .then(res => res.json())
             .then((res) => {
                 this.setState({
@@ -37,7 +37,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + (this.state.currentFigureIndex + 1))
+        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex)
             .then(res => res.json())
             .then((res) => {
                 this.setState({

@@ -43,7 +43,7 @@ class Figure extends React.Component{
 				<Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={this.state.open} onClick={this.handleClose}>
 					<img src={this.state.imgUrl} alt={"Enlarged figure"} className="enlargedFigure" />
 				</Backdrop>
-				<p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}/29688
+				<p id={"figure-label"}>Figure {this.state.currentFigureIndex}/29688
 					<Tooltip title={<React.Fragment>{this.state.currentFigureMetadata.name} <br />
 						{this.state.currentFigureMetadata.doi} <br />
 						{this.state.currentFigureMetadata.year}</React.Fragment>}
