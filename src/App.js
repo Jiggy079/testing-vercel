@@ -31,7 +31,7 @@ class App extends React.Component {
             .then(res => res.json())
             .then((res) => {
                 this.setState({
-                    currentFigure: res,
+                    currentFigure: res[0],
                 });
             });
         console.log(this.state.currentFigure);
@@ -42,7 +42,7 @@ class App extends React.Component {
             .then(res => res.json())
             .then((res) => {
                 this.setState({
-                    currentFigure: res,
+                    currentFigure: res[0],
                     figuresLoaded: true
                 });
             });
