@@ -26,20 +26,11 @@ class App extends React.Component {
         this.updateFigure = this.updateFigure.bind(this);
     }
 
-    updateFigure(newIndex) {
-        console.log("newIndex: " + newIndex);
+    async updateFigure(newIndex) {
         console.log("previous index:" + this.state.currentFigureIndex);
-
-        fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex)
-            .then(res => res.json())
-            .then((res) => {
-                this.setState({
-                    currentFigure: res,
-                });
-            });
-        this.setState({
-            currentFigureIndex: newIndex
-        });
+        const res = fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
+        const data = await res.json();
+        await this.setState({currentFigure: data, currentFigureIndex: newIndex});
         console.log("new index:" + this.state.currentFigureIndex);
     }
 
