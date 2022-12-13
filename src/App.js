@@ -29,7 +29,7 @@ class App extends React.Component {
 
     async updateFigure(newIndex) {
         console.log("called updateFigure")
-        const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
+        const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + newIndex);
         console.log("fetched /api/figures/" + this.state.currentFigureIndex);
         const data = await res.json();
         await this.setState({  currentFigure: data,
