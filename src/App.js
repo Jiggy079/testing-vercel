@@ -29,13 +29,11 @@ class App extends React.Component {
 
     async updateFigure(newIndex) {
         console.log("called updateFigure")
-        console.log("previous index:" + this.state.currentFigureIndex);
         const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
         const data = await res.json();
         await this.setState({  currentFigure: data,
                                     currentImageUrl: data[0]["url"],
-                                    currentFigureIndex: newIndex});
-        console.log("new index:" + this.state.currentFigureIndex);
+                                    currentFigureIndex: newIndex}, () => console.log(this.state.currentImageUrl));
     }
 
     componentDidMount() {
@@ -46,7 +44,7 @@ class App extends React.Component {
                     currentFigure: res,
                     currentImageUrl: res[0]["url"],
                     figuresLoaded: true
-                });
+                }, () => console.log(this.state.currentImageUrl));
             });
     }
 
