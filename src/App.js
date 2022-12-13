@@ -80,6 +80,7 @@ class App extends React.Component {
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
+            console.log(this.state.currentFigure[0]["url"]);
             return this.state.currentFigure[0]["url"];
         }
     }
