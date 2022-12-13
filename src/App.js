@@ -75,13 +75,14 @@ class App extends React.Component {
         }
     }
 
-    getImgURL() {
+    async getImgURL() {
         console.log("called getImgUrl")
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
-            console.log(this.state.currentFigure[0]["url"]);
-            return this.state.currentFigure[0]["url"];
+            const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
+            const data = await res.json();
+            return data[0]["url"];
         }
     }
 
