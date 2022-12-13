@@ -19,7 +19,6 @@ class App extends React.Component {
         super(props);
         this.state = {
             currentFigure : null,
-            currentImageUrl: null,
             currentFigureIndex: 1,
             figuresLoaded: false
         };
@@ -33,8 +32,7 @@ class App extends React.Component {
         console.log("fetched /api/figures/" + newIndex);
         const data = await res.json();
         await this.setState({  currentFigure: data,
-                                    currentImageUrl: data[0]["url"],
-                                    currentFigureIndex: newIndex}, () => console.log(this.state.currentImageUrl));
+                                    currentFigureIndex: newIndex});
     }
 
     componentDidMount() {
@@ -43,9 +41,8 @@ class App extends React.Component {
             .then((res) => {
                 this.setState({
                     currentFigure: res,
-                    currentImageUrl: res[0]["url"],
                     figuresLoaded: true
-                }, () => console.log(this.state.currentImageUrl));
+                });
             });
     }
 
@@ -83,7 +80,7 @@ class App extends React.Component {
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
-            return this.state.currentImageUrl;
+            return this.state.currentFigure[0]["url"];
         }
     }
 
