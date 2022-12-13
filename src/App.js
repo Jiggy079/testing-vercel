@@ -19,6 +19,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             currentFigure : null,
+            currentImageUrl: null,
             currentFigureIndex: 1,
             figuresLoaded: false
         };
@@ -31,7 +32,9 @@ class App extends React.Component {
         console.log("previous index:" + this.state.currentFigureIndex);
         const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
         const data = await res.json();
-        await this.setState({currentFigure: data, currentFigureIndex: newIndex});
+        await this.setState({  currentFigure: data,
+                                    currentImageUrl: data[0]["url"],
+                                    currentFigureIndex: newIndex});
         console.log("new index:" + this.state.currentFigureIndex);
     }
 
@@ -41,6 +44,7 @@ class App extends React.Component {
             .then((res) => {
                 this.setState({
                     currentFigure: res,
+                    currentImageUrl: res[0]["url"],
                     figuresLoaded: true
                 });
             });
@@ -75,14 +79,12 @@ class App extends React.Component {
         }
     }
 
-    async getImgURL() {
+    getImgURL() {
         console.log("called getImgUrl")
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
-            const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
-            const data = await res.json();
-            return data[0]["url"];
+            return this.state.currentImageUrl;
         }
     }
 
