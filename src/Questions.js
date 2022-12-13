@@ -11,6 +11,7 @@ class Questions extends React.Component {
 	constructor() {
 		super();
 		this.getQuestions = this.getQuestions.bind(this);
+		this.doSubmit = this.doSubmit.bind(this);
 	}
 
 	getQuestions() {
@@ -42,6 +43,10 @@ class Questions extends React.Component {
 			"5": "5"
 		}
 		return [question1, question2, question3, question4, question6];
+	}
+
+	doSubmit() {
+		console.log("a");
 	}
 
 	render() {
