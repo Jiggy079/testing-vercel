@@ -27,6 +27,7 @@ class App extends React.Component {
     }
 
     async updateFigure(newIndex) {
+        console.log("called updateFigure")
         console.log("previous index:" + this.state.currentFigureIndex);
         const res = await fetch("https://vercel-backend-rho.vercel.app/api/figures/" + this.state.currentFigureIndex);
         const data = await res.json();
@@ -46,6 +47,7 @@ class App extends React.Component {
     }
 
     changeFigure(increment) {
+        console.log("called changeFigure")
         if (increment === true) {
             if (this.state.currentFigureIndex === 29688) {
                 this.updateFigure(1)
@@ -74,6 +76,7 @@ class App extends React.Component {
     }
 
     getImgURL() {
+        console.log("called getImgUrl")
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
