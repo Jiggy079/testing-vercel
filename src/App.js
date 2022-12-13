@@ -38,6 +38,9 @@ class App extends React.Component {
                     currentFigureIndex: newIndex
                 });
             });
+        this.setState({
+            currentFigureIndex: newIndex
+        });
         console.log("new index:" + this.state.currentFigureIndex);
     }
 
