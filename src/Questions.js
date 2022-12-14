@@ -8,9 +8,13 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 class Questions extends React.Component {
-	constructor() {
-		super();
+	constructor({figureID}) {
+		super(figureID);
+		this.state = {
+			figureID: figureID
+		};
 		this.getQuestions = this.getQuestions.bind(this);
+		this.postAnswers = this.postAnswers.bind(this);
 		this.doSubmit = this.doSubmit.bind(this);
 	}
 
@@ -45,19 +49,40 @@ class Questions extends React.Component {
 		return [question1, question2, question3, question4, question6];
 	}
 
+	postAnswers(answers) {
+		let request = {
+			"type": answers[0],
+			"usage": answers[1],
+			"legend": answers[2],
+			"mappingtype": answers[3],
+			"amount": answers[4],
+			"difficulty": answers[5]
+		}
+		let xhr = new XMLHttpRequest();
+		let url = "https://vercel-backend-rho.vercel.app/api/annotations/" + this.state.figureID;
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function() {
+			console.log(JSON.parse(xhr.responseText));
+		};
+		xhr.send(JSON.stringify(request));
+	}
+
 	doSubmit() {
+		let answers = [];
 		for (let i=0; i < 7; i++) {
 			if (i === 5) {
 				let q = document.getElementById("question5").value;
-				console.log(q);
+				answers.push(q);
 			} else {
 				let selector = `input[name="question${i}"]:checked`;
 				let q = document.querySelector(selector);
 				if (q) {
-					console.log(q.value);
+					answers.push(q.value);
 				}
 			}
 		}
+		postAnswers(answers);
 	}
 
 	render() {

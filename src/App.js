@@ -96,7 +96,7 @@ class App extends React.Component {
                             currentFigureMetadata={figureInfo}/>
                     <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
                     <Divider orientation="vertical" flexItem />
-                    <Questions />
+                    <Questions figureID={this.state.currentFigureIndex} />
                 </Stack>
             </div>
         );
