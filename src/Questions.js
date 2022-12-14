@@ -20,6 +20,12 @@ class Questions extends React.Component {
 		this.doSubmit = this.doSubmit.bind(this);
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if (this.props !== prevProps) {
+			this.setState({figureID: this.props.figureID});
+		}
+	}
+
 	getQuestions() {
 		let question1 = {
 			"blackwhite": "Black and white",
