@@ -51,7 +51,7 @@ class Questions extends React.Component {
 				let q = document.getElementById("question5").value;
 				console.log(q);
 			} else {
-				let selector = 'input[name="question${i}"]:checked';
+				let selector = `input[name="question${i}"]:checked`;
 				let q = document.querySelector(selector).value;
 				console.log(q);
 			}
