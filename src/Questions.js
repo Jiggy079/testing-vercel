@@ -11,7 +11,9 @@ class Questions extends React.Component {
 	constructor({figureID}) {
 		super(figureID);
 		this.state = {
-			figureID: figureID
+			figureID: figureID,
+			hasSubmitted: false,
+			submitSuccess: false
 		};
 		this.getQuestions = this.getQuestions.bind(this);
 		this.postAnswers = this.postAnswers.bind(this);
@@ -64,7 +66,15 @@ class Questions extends React.Component {
 		xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.onreadystatechange = function() {
 			if (xhr.responseText.includes("success")) {
-				console.log("success");
+				this.setState({
+					hasSubmitted: true,
+					submitSuccess: true
+				});
+			} else if (xhr.responseText.includes("message")) {
+				this.setState({
+					hasSubmitted: true,
+					submitSuccess: false
+				});
 			}
 		};
 		xhr.send(JSON.stringify(request));
@@ -146,7 +156,11 @@ class Questions extends React.Component {
 						</Card>
 					</Grid>
 				</Grid>
-				<Button variant="contained" onClick={this.doSubmit}>Submit</Button>
+				<Button variant="contained"
+						color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}
+						onClick={this.doSubmit}>
+						{this.state.hasSubmitted ? this.state.submitSuccess ? "Success" : "Error" : "Submit"}
+				</Button>
 			</Stack>
 		);
 	}
