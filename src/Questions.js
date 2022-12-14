@@ -52,8 +52,10 @@ class Questions extends React.Component {
 				console.log(q);
 			} else {
 				let selector = `input[name="question${i}"]:checked`;
-				let q = document.querySelector(selector).value;
-				console.log(q);
+				let q = document.querySelector(selector);
+				if (q) {
+					console.log(q.value);
+				}
 			}
 		}
 	}
