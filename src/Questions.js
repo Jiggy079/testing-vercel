@@ -63,7 +63,9 @@ class Questions extends React.Component {
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.onreadystatechange = function() {
-			console.log(xhr.responseText);
+			if (xhr.responseText.includes("success")) {
+				console.log("success");
+			}
 		};
 		xhr.send(JSON.stringify(request));
 	}
