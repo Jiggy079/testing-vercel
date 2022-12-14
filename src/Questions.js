@@ -47,9 +47,14 @@ class Questions extends React.Component {
 
 	doSubmit() {
 		for (let i=0; i < 7; i++) {
-			let selector = 'input[name="question${i}"]:checked';
-			let q = document.querySelector(selector).value;
-			console.log(q);
+			if (i === 5) {
+				let q = document.getElementById("question5").value;
+				console.log(q);
+			} else {
+				let selector = 'input[name="question${i}"]:checked';
+				let q = document.querySelector(selector).value;
+				console.log(q);
+			}
 		}
 	}
 
