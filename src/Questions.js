@@ -82,7 +82,7 @@ class Questions extends React.Component {
 				}
 			}
 		}
-		postAnswers(answers);
+		this.postAnswers(answers);
 	}
 
 	render() {
