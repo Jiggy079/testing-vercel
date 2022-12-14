@@ -76,7 +76,7 @@ class Questions extends React.Component {
 					submitSuccess: false
 				});
 			}
-		};
+		}.bind(this);
 		xhr.send(JSON.stringify(request));
 	}
 
