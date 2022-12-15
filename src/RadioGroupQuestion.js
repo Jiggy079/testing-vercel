@@ -13,12 +13,12 @@ function getQuestionsContent(question) {
     return questionsList;
 }
 
-function RowRadioGroupQuestion({title, formName, question, index}) {
+function RowRadioGroupQuestion({title, formName, question, index, defaultValue}) {
     
     return (
         <FormControl>
           <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
-          <RadioGroup row name={formName} id={"question"+index}>
+          <RadioGroup row name={formName} id={"question"+index} defaultValue={defaultValue}>
             {getQuestionsContent(question)}
           </RadioGroup>
         </FormControl>

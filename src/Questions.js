@@ -13,17 +13,35 @@ class Questions extends React.Component {
 		this.state = {
 			figureID: figureID,
 			hasSubmitted: false,
-			submitSuccess: false
+			submitSuccess: false,
+			annotations: null
 		};
 		this.getQuestions = this.getQuestions.bind(this);
 		this.postAnswers = this.postAnswers.bind(this);
 		this.doSubmit = this.doSubmit.bind(this);
+		this.fetchAnnotations = this.fetchAnnotations.bind(this);
+	}
+
+	componentDidMount() {
+		this.fetchAnnotations();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props !== prevProps) {
 			this.setState({figureID: this.props.figureID});
+			this.fetchAnnotations();
 		}
+	}
+
+	fetchAnnotations() {
+		let url = "https://vercel-backend-rho.vercel.app/api/annotations/" + this.state.figureID;
+		fetch(url)
+			.then(res => res.json())
+			.then((res) => {
+				this.setState({
+					annotations: res
+				})
+			});
 	}
 
 	getQuestions() {
@@ -113,7 +131,8 @@ class Questions extends React.Component {
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q1. What type of colour is used?"
-									formName="question1" question={questions[0]} index={1} />
+									formName="question1" question={questions[0]} index={1}
+									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["type"]} />
 							</CardContent>
 						</Card>
 					</Grid>
@@ -122,7 +141,8 @@ class Questions extends React.Component {
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q2. Is colour used for aesthetics or data visualisation?"
-									formName="question2" question={questions[1]} index={2} />
+									formName="question2" question={questions[1]} index={2}
+									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["usage"]} />
 							</CardContent>
 						</Card>
 					</Grid>
@@ -131,7 +151,8 @@ class Questions extends React.Component {
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q3. Is a colour mapping legend shown?"
-									formName="question3" question={questions[2]} index={3} />
+									formName="question3" question={questions[2]} index={3}
+									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["legend"]} />
 							</CardContent>
 						</Card>
 					</Grid>
@@ -140,7 +161,8 @@ class Questions extends React.Component {
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q4. Is the colour mapping continuous or categorical?"
-									formName="question4" question={questions[3]} index={4} />
+									formName="question4" question={questions[3]} index={4}
+									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["mappingtype"]} />
 							</CardContent>
 						</Card>
 					</Grid>
@@ -148,7 +170,9 @@ class Questions extends React.Component {
 						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<p className="questionLabel">Q5. How many colour values are used?</p>
-								<TextField id="question5" label="Enter a number" type="number" name="question5" InputLabelProps={{shrink: true,}} />
+								<TextField id="question5" label="Enter a number" type="number" name="question5"
+										   defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["amount"]}
+										   InputLabelProps={{shrink: true,}} />
 							</CardContent>
 						</Card>
 					</Grid>
@@ -157,7 +181,8 @@ class Questions extends React.Component {
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q6. How difficult was this image to annotate? (1 being easy and 5 being hard)"
-									formName="question6" question={questions[4]} index={6} />
+									formName="question6" question={questions[4]} index={6}
+									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["difficulty"]} />
 							</CardContent>
 						</Card>
 					</Grid>
