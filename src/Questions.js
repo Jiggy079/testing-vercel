@@ -22,10 +22,6 @@ class Questions extends React.Component {
 		this.fetchAnnotations = this.fetchAnnotations.bind(this);
 	}
 
-	// componentDidMount() {
-	// 	this.fetchAnnotations();
-	// }
-
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props !== prevProps) {
 			this.setState({figureID: this.props.figureID}, () => this.fetchAnnotations());
