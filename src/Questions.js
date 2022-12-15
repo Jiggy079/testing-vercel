@@ -114,7 +114,8 @@ class Questions extends React.Component {
 			}
 		}
 		if (answers.includes("")) {
-			this.setState({submitSuccess: false})
+			this.setState({hasSubmitted: true,
+								submitSuccess: false})
 		} else {
 			this.postAnswers(answers);
 		}
