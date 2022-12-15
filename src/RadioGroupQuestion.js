@@ -15,6 +15,7 @@ function getQuestionsContent(question) {
 
 function RowRadioGroupQuestion({title, formName, question, index, defaultValue}) {
     if (defaultValue == null) {
+        console.log("rendered radio with defaultValue=null");
         return (
             <FormControl>
                 <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
@@ -24,6 +25,7 @@ function RowRadioGroupQuestion({title, formName, question, index, defaultValue})
             </FormControl>
         );
     } else {
+        console.log("rendered radio with defaultValue="+defaultValue);
         return (
             <FormControl>
                 <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
