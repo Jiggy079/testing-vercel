@@ -113,7 +113,11 @@ class Questions extends React.Component {
 				}
 			}
 		}
-		this.postAnswers(answers);
+		if (answers.includes("")) {
+			this.setState({submitSuccess: false})
+		} else {
+			this.postAnswers(answers);
+		}
 	}
 
 	render() {
