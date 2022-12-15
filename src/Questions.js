@@ -122,7 +122,7 @@ class Questions extends React.Component {
 			<Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
 				<Grid sx={{flexGrow: 1}} container spacing={2}>
 					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q1. What type of colour is used?"
@@ -132,7 +132,7 @@ class Questions extends React.Component {
 						</Card>
 					</Grid>
 					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q2. Is colour used for aesthetics or data visualisation?"
@@ -142,7 +142,7 @@ class Questions extends React.Component {
 						</Card>
 					</Grid>
 					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q3. Is a colour mapping legend shown?"
@@ -152,7 +152,7 @@ class Questions extends React.Component {
 						</Card>
 					</Grid>
 					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q4. Is the colour mapping continuous or categorical?"
@@ -162,7 +162,7 @@ class Questions extends React.Component {
 						</Card>
 					</Grid>
 					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<p className="questionLabel">Q5. How many colour values are used?</p>
 								<TextField id="question5" label="Enter a number" type="number" name="question5"
@@ -172,7 +172,7 @@ class Questions extends React.Component {
 						</Card>
 					</Grid>
 					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#1A2027', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 							<CardContent>
 								<RowRadioGroupQuestion
 									title="Q6. How difficult was this image to annotate? (1 being easy and 5 being hard)"
