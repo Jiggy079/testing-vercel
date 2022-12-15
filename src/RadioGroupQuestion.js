@@ -14,15 +14,25 @@ function getQuestionsContent(question) {
 }
 
 function RowRadioGroupQuestion({title, formName, question, index, defaultValue}) {
-    
-    return (
-        <FormControl>
-          <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
-          <RadioGroup row name={formName} id={"question"+index} defaultValue={defaultValue}>
-            {getQuestionsContent(question)}
-          </RadioGroup>
-        </FormControl>
-      );
+    if (defaultValue == null) {
+        return (
+            <FormControl>
+                <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
+                <RadioGroup row name={formName} id={"question"+index}>
+                    {getQuestionsContent(question)}
+                </RadioGroup>
+            </FormControl>
+        );
+    } else {
+        return (
+            <FormControl>
+                <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
+                <RadioGroup row name={formName} id={"question"+index} defaultValue={defaultValue}>
+                    {getQuestionsContent(question)}
+                </RadioGroup>
+            </FormControl>
+        );
+    }
 }
 
 export default RowRadioGroupQuestion;
