@@ -105,9 +105,10 @@ class App extends React.Component {
         if (this.state.user == null) {
             return (
                 <div className="App">
-                    <FormControl sx={{m:1, minWidth: 100, color: "#61dafb"}}>
+                    <FormControl sx={{m:1, minWidth: 100}}>
                         <InputLabel>User</InputLabel>
                         <Select
+                            sx = {{color: "#61dafb"}}
                             value={this.state.user}
                             label="User"
                             onChange={this.handleUserChange}
