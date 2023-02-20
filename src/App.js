@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Figure from "./Figure";
 import Questions from "./Questions";
+import Login from "./Login";
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -20,7 +21,8 @@ class App extends React.Component {
         this.state = {
             currentFigure : null,
             currentFigureIndex: 1,
-            figuresLoaded: false
+            figuresLoaded: false,
+            user: null
         };
         this.changeFigure = this.changeFigure.bind(this);
         this.updateFigure = this.updateFigure.bind(this);
@@ -87,19 +89,33 @@ class App extends React.Component {
         let figureInfo = this.getFigureInfo();
         let imgUrl = this.getImgURL();
 
-        return (
-            <div className="App">
-                <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
-                    <Button variant="contained" onClick={() => this.changeFigure(false)}>{<NavigateBeforeIcon />}</Button>
-                    <Figure imgUrl={imgUrl}
-                            currentFigureIndex={this.state.currentFigureIndex}
-                            currentFigureMetadata={figureInfo}/>
-                    <Button variant="contained" onClick={() => this.changeFigure(true)}>{<NavigateNextIcon />}</Button>
-                    <Divider orientation="vertical" flexItem />
-                    <Questions figureID={this.state.currentFigureIndex} />
-                </Stack>
-            </div>
-        );
+        if (this.state.user == null) {
+            return (
+                <div className="App">
+                    <Login />
+                </div>
+            );
+        } else {
+            return (
+                <div className="App">
+                    <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
+                        <Button variant="contained"
+                                onClick={() => this.changeFigure(false)}>
+                                {<NavigateBeforeIcon />}
+                        </Button>
+                        <Figure imgUrl={imgUrl}
+                                currentFigureIndex={this.state.currentFigureIndex}
+                                currentFigureMetadata={figureInfo}/>
+                        <Button variant="contained"
+                                onClick={() => this.changeFigure(true)}>
+                                {<NavigateNextIcon />}
+                        </Button>
+                        <Divider orientation="vertical" flexItem />
+                        <Questions figureID={this.state.currentFigureIndex} />
+                    </Stack>
+                </div>
+            );
+        }
     }
 }
 
