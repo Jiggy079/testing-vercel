@@ -13,6 +13,10 @@ import Button from '@mui/material/Button';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import Divider from '@mui/material/Divider';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 
 class App extends React.Component {
@@ -89,6 +93,10 @@ class App extends React.Component {
         this.setState({user: user});
     }
 
+    handleUserChange(event) {
+        this.setState({user: event.target.value});
+    }
+
     render() {
         document.title = "Figure Viewer";
         let figureInfo = this.getFigureInfo();
@@ -97,7 +105,18 @@ class App extends React.Component {
         if (this.state.user == null) {
             return (
                 <div className="App">
-                    <Login onchange={this.login}/>
+                    <FormControl>
+                        <InputLabel>User</InputLabel>
+                        <Select
+                            value={this.state.user}
+                            label="User"
+                            onChange={this.handleUserChange}
+                        >
+                            <MenuItem value={"JV"}>JV</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
             );
         } else {
