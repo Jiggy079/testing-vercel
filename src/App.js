@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Figure from "./Figure";
 import Questions from "./Questions";
-import Login from "./Login";
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -106,16 +105,21 @@ class App extends React.Component {
         if (this.state.user == null) {
             return (
                 <div className="App">
-                    <FormControl>
+                    <FormControl sx={{m:1, minWidth: 100}}>
                         <InputLabel>User</InputLabel>
                         <Select
                             value={this.state.user}
                             label="User"
                             onChange={this.handleUserChange}
                         >
+                            <MenuItem value={"HL"}>HL</MenuItem>
                             <MenuItem value={"JV"}>JV</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={"LW"}>LW</MenuItem>
+                            <MenuItem value={"NK"}>NK</MenuItem>
+                            <MenuItem value={"RL"}>RL</MenuItem>
+                            <MenuItem value={"WQ"}>WQ</MenuItem>
+                            <MenuItem value={"YH"}>YH</MenuItem>
+                            <MenuItem value={"ZZ"}>ZZ</MenuItem>
                         </Select>
                     </FormControl>
                 </div>
