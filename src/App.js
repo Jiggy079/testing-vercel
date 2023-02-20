@@ -84,6 +84,10 @@ class App extends React.Component {
         }
     }
 
+    login(user) {
+        this.setState({user: user});
+    }
+
     render() {
         document.title = "Figure Viewer";
         let figureInfo = this.getFigureInfo();
@@ -92,7 +96,7 @@ class App extends React.Component {
         if (this.state.user == null) {
             return (
                 <div className="App">
-                    <Login />
+                    <Login onchange={this.login}/>
                 </div>
             );
         } else {

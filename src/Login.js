@@ -7,13 +7,13 @@ import Select from '@mui/material/Select';
 function Login({handleChange}) {
 	let user = null;
 	return (
-		<FormControl fullWidth>
+		<FormControl>
 			<InputLabel>User</InputLabel>
 			<Select
 				labelId="demo-simple-select-label"
 				value={user}
 				label="User"
-				onChange={handleChange}
+				onChange={handleChange(user)}
 			>
 				<MenuItem value={"JV"}>JV</MenuItem>
 				<MenuItem value={20}>Twenty</MenuItem>
