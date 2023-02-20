@@ -15,8 +15,10 @@ class Login extends React.Component {
 	}
 
 	handleChange(event) {
-		// this.callback(this.state.user);
-		this.setState({user: event.target.value});
+		this.setState({user: event.target.value}, this.debug);
+	}
+
+	debug() {
 		console.log(this.state.user);
 	}
 
