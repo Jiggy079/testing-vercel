@@ -7,28 +7,25 @@ import Select from '@mui/material/Select';
 class Login extends React.Component {
 	constructor({callback}) {
 		super(callback);
-		this.state = {
-			user: null
-		}
+		this.user = null;
 		this.callback = callback;
 		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleChange() {
-		this.callback(this.state.user);
+		// this.callback(this.state.user);
+		console.log(this.user);
 	}
 
 	render() {
-		let user = null;
-
 		return (
 			<FormControl>
 				<InputLabel>User</InputLabel>
 				<Select
 					labelId="demo-simple-select-label"
-					value={user}
+					value={this.user}
 					label="User"
-					onChange={this.setState({user: user})}
+					onChange={this.handleChange}
 				>
 					<MenuItem value={"JV"}>JV</MenuItem>
 					<MenuItem value={20}>Twenty</MenuItem>
