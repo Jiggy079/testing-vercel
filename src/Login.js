@@ -2,19 +2,22 @@ import React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 class Login extends React.Component {
 	constructor({callback}) {
 		super(callback);
-		this.user = null;
+		this.state = {
+			user: null
+		}
 		this.callback = callback;
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	handleChange() {
+	handleChange(event) {
 		// this.callback(this.state.user);
-		console.log(this.user);
+		this.setState({user: event.target.value});
+		console.log(this.state.user);
 	}
 
 	render() {
@@ -23,7 +26,7 @@ class Login extends React.Component {
 				<InputLabel>User</InputLabel>
 				<Select
 					labelId="demo-simple-select-label"
-					value={this.user}
+					value={this.state.user}
 					label="User"
 					onChange={this.handleChange}
 				>
