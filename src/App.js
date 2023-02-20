@@ -31,6 +31,7 @@ class App extends React.Component {
         this.changeFigure = this.changeFigure.bind(this);
         this.updateFigure = this.updateFigure.bind(this);
         this.login = this.login.bind(this);
+        this.handleUserChange = this.handleUserChange.bind(this);
     }
 
     async updateFigure(newIndex) {
