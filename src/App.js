@@ -15,7 +15,7 @@ import Divider from '@mui/material/Divider';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 
 class App extends React.Component {
@@ -105,7 +105,7 @@ class App extends React.Component {
         if (this.state.user == null) {
             return (
                 <div className="App">
-                    <FormControl sx={{m:1, minWidth: 100}}>
+                    <FormControl sx={{m:1, minWidth: 100, color: "#61dafb"}}>
                         <InputLabel>User</InputLabel>
                         <Select
                             value={this.state.user}
