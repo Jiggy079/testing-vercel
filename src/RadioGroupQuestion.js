@@ -13,8 +13,8 @@ function getQuestionsContent(question) {
     return questionsList;
 }
 
-function RowRadioGroupQuestion({title, formName, question, index, defaultValue}) {
-    if (defaultValue == null) {
+function RowRadioGroupQuestion({title, formName, question, index, defValue}) {
+    if (defValue == null) {
         console.log("rendered radio with defaultValue=null");
         return (
             <FormControl>
@@ -25,11 +25,11 @@ function RowRadioGroupQuestion({title, formName, question, index, defaultValue})
             </FormControl>
         );
     } else {
-        console.log("rendered radio with defaultValue="+defaultValue);
+        console.log("rendered radio with defaultValue="+defValue);
         return (
             <FormControl>
                 <FormLabel><span className="questionLabel"> {title}</span></FormLabel>
-                <RadioGroup row name={formName} id={"question"+index} defaultValue={defaultValue.toString()}>
+                <RadioGroup row name={formName} id={"question"+index} defaultValue={defValue.toString()}>
                     {getQuestionsContent(question)}
                 </RadioGroup>
             </FormControl>
