@@ -21,6 +21,7 @@ class Questions extends React.Component {
 		this.postAnswers = this.postAnswers.bind(this);
 		this.doSubmit = this.doSubmit.bind(this);
 		this.fetchAnnotations = this.fetchAnnotations.bind(this);
+		this.firstAnnotationsLoaded = false;
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -124,6 +125,13 @@ class Questions extends React.Component {
 	}
 
 	render() {
+		if (this.state.figureID === 1) {
+			if (this.firstAnnotationsLoaded === false) {
+				this.firstAnnotationsLoaded = true;
+				this.fetchAnnotations();
+			}
+		}
+
 		if (this.state.annotationsLoaded === false) {
 			return (
 				<p>loading</p>
