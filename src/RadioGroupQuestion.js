@@ -19,6 +19,7 @@ class RowRadioGroupQuestion extends React.Component {
         this.question = question;
         this.index = index;
         this.defaultValue = defaultValue;
+        console.log(this.defaultValue);
         this.getQuestionsContent = this.getQuestionsContent.bind(this);
     }
 
