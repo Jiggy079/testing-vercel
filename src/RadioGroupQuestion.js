@@ -19,7 +19,6 @@ class RowRadioGroupQuestion extends React.Component {
         this.question = question;
         this.index = index;
         this.defaultValue = defaultValue;
-        console.log(this.defaultValue);
         this.getQuestionsContent = this.getQuestionsContent.bind(this);
     }
 
@@ -33,7 +32,6 @@ class RowRadioGroupQuestion extends React.Component {
 
     render () {
         if (this.defaultValue == null) {
-            console.log("rendered radio with defaultValue=null");
             return (
                 <FormControl>
                     <FormLabel><span className="questionLabel"> {this.title}</span></FormLabel>
@@ -43,7 +41,6 @@ class RowRadioGroupQuestion extends React.Component {
                 </FormControl>
             );
         } else {
-            console.log("rendered radio with defaultValue="+this.defaultValue);
             return (
                 <FormControl>
                     <FormLabel><span className="questionLabel"> {this.title}</span></FormLabel>
