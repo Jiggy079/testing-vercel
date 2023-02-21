@@ -14,18 +14,18 @@ class Questions extends React.Component {
 			figureID: figureID,
 			hasSubmitted: false,
 			submitSuccess: false,
-			annotations: null
+			annotations: null,
+			annotationsLoaded: false,
 		};
 		this.getQuestions = this.getQuestions.bind(this);
 		this.postAnswers = this.postAnswers.bind(this);
 		this.doSubmit = this.doSubmit.bind(this);
 		this.fetchAnnotations = this.fetchAnnotations.bind(this);
-		this.firstAnnotationsLoaded = false;
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props !== prevProps) {
-			this.setState({figureID: this.props.figureID}, () => this.fetchAnnotations());
+			this.setState({figureID: this.props.figureID, annotationsLoaded: false}, () => this.fetchAnnotations());
 		}
 	}
 
@@ -35,7 +35,8 @@ class Questions extends React.Component {
 			.then(res => res.json())
 			.then((res) => {
 				this.setState({
-					annotations: res
+					annotations: res,
+					annotationsLoaded: true
 				})
 			});
 	}
@@ -123,84 +124,84 @@ class Questions extends React.Component {
 	}
 
 	render() {
-		if (this.state.figureID === 1) {
-			if (this.firstAnnotationsLoaded === false) {
-				this.firstAnnotationsLoaded = true;
-				this.fetchAnnotations();
-			}
-		}
-		let questions = this.getQuestions();
-		return (
-			<Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
-				<Grid sx={{flexGrow: 1}} container spacing={2}>
-					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
-							<CardContent>
-								<RowRadioGroupQuestion
-									title="Q1. What type of colour is used?"
-									formName="question1" question={questions[0]} index={1}
-									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["type"]} />
-							</CardContent>
-						</Card>
+		if (this.state.annotationsLoaded === false) {
+			return (
+				<p>loading</p>
+			);
+		} else {
+			let questions = this.getQuestions();
+			return (
+				<Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
+					<Grid sx={{flexGrow: 1}} container spacing={2}>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent>
+									<RowRadioGroupQuestion
+										title="Q1. What type of colour is used?"
+										formName="question1" question={questions[0]} index={1}
+										defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["type"]} />
+								</CardContent>
+							</Card>
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent>
+									<RowRadioGroupQuestion
+										title="Q2. Is colour used for aesthetics or data visualisation?"
+										formName="question2" question={questions[1]} index={2}
+										defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["usage"]} />
+								</CardContent>
+							</Card>
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent>
+									<RowRadioGroupQuestion
+										title="Q3. Is a colour mapping legend shown?"
+										formName="question3" question={questions[2]} index={3}
+										defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["legend"]} />
+								</CardContent>
+							</Card>
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent>
+									<RowRadioGroupQuestion
+										title="Q4. Is the colour mapping continuous or categorical?"
+										formName="question4" question={questions[3]} index={4}
+										defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["mappingtype"]} />
+								</CardContent>
+							</Card>
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent>
+									<p className="questionLabel">Q5. How many colour values are used?</p>
+									<TextField id="question5" label="Enter a number" type="number" name="question5"
+											   defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["amount"]}
+											   InputLabelProps={{shrink: true,}} />
+								</CardContent>
+							</Card>
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent>
+									<RowRadioGroupQuestion
+										title="Q6. How difficult was this image to annotate? (1 being easy and 5 being hard)"
+										formName="question6" question={questions[4]} index={6}
+										defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["difficulty"]} />
+								</CardContent>
+							</Card>
+						</Grid>
 					</Grid>
-					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
-							<CardContent>
-								<RowRadioGroupQuestion
-									title="Q2. Is colour used for aesthetics or data visualisation?"
-									formName="question2" question={questions[1]} index={2}
-									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["usage"]} />
-							</CardContent>
-						</Card>
-					</Grid>
-					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
-							<CardContent>
-								<RowRadioGroupQuestion
-									title="Q3. Is a colour mapping legend shown?"
-									formName="question3" question={questions[2]} index={3}
-									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["legend"]} />
-							</CardContent>
-						</Card>
-					</Grid>
-					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
-							<CardContent>
-								<RowRadioGroupQuestion
-									title="Q4. Is the colour mapping continuous or categorical?"
-									formName="question4" question={questions[3]} index={4}
-									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["mappingtype"]} />
-							</CardContent>
-						</Card>
-					</Grid>
-					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
-							<CardContent>
-								<p className="questionLabel">Q5. How many colour values are used?</p>
-								<TextField id="question5" label="Enter a number" type="number" name="question5"
-										   defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["amount"]}
-										   InputLabelProps={{shrink: true,}} />
-							</CardContent>
-						</Card>
-					</Grid>
-					<Grid item xs={6}>
-						<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
-							<CardContent>
-								<RowRadioGroupQuestion
-									title="Q6. How difficult was this image to annotate? (1 being easy and 5 being hard)"
-									formName="question6" question={questions[4]} index={6}
-									defaultValue={this.state.annotations == null ? null : this.state.annotations[0]["difficulty"]} />
-							</CardContent>
-						</Card>
-					</Grid>
-				</Grid>
-				<Button variant="contained"
-						color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}
-						onClick={this.doSubmit}>
+					<Button variant="contained"
+							color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}
+							onClick={this.doSubmit}>
 						{this.state.hasSubmitted ? this.state.submitSuccess ? "Success" : "Error" : "Submit"}
-				</Button>
-			</Stack>
-		);
+					</Button>
+				</Stack>
+			);
+		}
 	}
 }
 
