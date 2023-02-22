@@ -6,6 +6,8 @@ import RowRadioGroupQuestion from "./RadioGroupQuestion";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 class Questions extends React.Component {
 	constructor({figureID}) {
@@ -134,7 +136,9 @@ class Questions extends React.Component {
 
 		if (this.state.annotationsLoaded === false) {
 			return (
-				<p>loading</p>
+				<Box sx={{display: "flex"}}>
+					<CircularProgress />
+				</Box>
 			);
 		} else {
 			let questions = this.getQuestions();
