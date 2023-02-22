@@ -113,7 +113,7 @@ class App extends React.Component {
                             <Select
                                 labelStyle = {{color: "#61dafb"}}
                                 value={this.state.user}
-                                label="User"
+                                label={<span style="color: blue;">User</span>}
                                 onChange={this.handleUserChange}
                             >
                                 <MenuItem value={"HL"}>HL</MenuItem>
