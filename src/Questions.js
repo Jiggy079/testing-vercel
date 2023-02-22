@@ -138,29 +138,36 @@ class Questions extends React.Component {
 				<Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
 					<Grid sx={{flexGrow: 1}} container spacing={2}>
 						<Grid item xs={6}>
-							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent><CircularProgress /></CardContent>
+							</Card>
 						</Grid>
 						<Grid item xs={6}>
-							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent><CircularProgress /></CardContent>
+							</Card>
 						</Grid>
 						<Grid item xs={6}>
-							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
-						</Grid>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent><CircularProgress /></CardContent>
+							</Card>						</Grid>
 						<Grid item xs={6}>
-							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
-						</Grid>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent><CircularProgress /></CardContent>
+							</Card>						</Grid>
 						<Grid item xs={6}>
-							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
-						</Grid>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent><CircularProgress /></CardContent>
+							</Card>						</Grid>
 						<Grid item xs={6}>
-							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
-						</Grid>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
+								<CardContent><CircularProgress /></CardContent>
+							</Card>						</Grid>
 					</Grid>
 					<Button variant="contained"
 							color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}>
 						Submit
 					</Button>
-					<CircularProgress />
 				</Stack>
 			);
 		} else {
