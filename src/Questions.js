@@ -158,8 +158,9 @@ class Questions extends React.Component {
 					</Grid>
 					<Button variant="contained"
 							color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}>
-						<CircularProgress />
+						Submit
 					</Button>
+					<CircularProgress />
 				</Stack>
 			);
 		} else {
