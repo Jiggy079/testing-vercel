@@ -6,7 +6,6 @@ import RowRadioGroupQuestion from "./RadioGroupQuestion";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 
 class Questions extends React.Component {
@@ -136,9 +135,32 @@ class Questions extends React.Component {
 
 		if (this.state.annotationsLoaded === false) {
 			return (
-				<Box sx={{width: "100%"}}>
-					<CircularProgress />
-				</Box>
+				<Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
+					<Grid sx={{flexGrow: 1}} container spacing={2}>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+						</Grid>
+						<Grid item xs={6}>
+							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}} />
+						</Grid>
+					</Grid>
+					<Button variant="contained"
+							color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}>
+						<CircularProgress />
+					</Button>
+				</Stack>
 			);
 		} else {
 			let questions = this.getQuestions();
