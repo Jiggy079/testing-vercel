@@ -136,7 +136,7 @@ class Questions extends React.Component {
 
 		if (this.state.annotationsLoaded === false) {
 			return (
-				<Box sx={{display: "flex"}}>
+				<Box sx={{width: "100%"}}>
 					<CircularProgress />
 				</Box>
 			);
