@@ -27,7 +27,11 @@ class Questions extends React.Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props !== prevProps) {
-			this.setState({figureID: this.props.figureID, annotationsLoaded: false}, () => this.fetchAnnotations());
+			this.setState({figureID: this.props.figureID,
+				annotationsLoaded: false,
+				hasSubmitted: false,
+				submitSuccess: false},
+				() => this.fetchAnnotations());
 		}
 	}
 
