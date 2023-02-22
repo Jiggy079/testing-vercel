@@ -107,7 +107,7 @@ class App extends React.Component {
             // if not logged in, render the login page
             return (
                 <div className="App">
-                    <Box sx={{backgroundColor: "#385e80"}}>
+                    <Box sx={{backgroundColor: "#1a2d3d", borderRadius: 10}}>
                         <FormControl sx={{m:1, minWidth: 100}}>
                             <InputLabel>User</InputLabel>
                             <Select
