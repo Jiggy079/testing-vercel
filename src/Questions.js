@@ -150,19 +150,23 @@ class Questions extends React.Component {
 						<Grid item xs={6}>
 							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 								<CardContent><CircularProgress /></CardContent>
-							</Card>						</Grid>
+							</Card>
+						</Grid>
 						<Grid item xs={6}>
 							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 								<CardContent><CircularProgress /></CardContent>
-							</Card>						</Grid>
+							</Card>
+						</Grid>
 						<Grid item xs={6}>
 							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 								<CardContent><CircularProgress /></CardContent>
-							</Card>						</Grid>
+							</Card>
+						</Grid>
 						<Grid item xs={6}>
 							<Card sx={{backgroundColor: '#454b50', color:'#61dafb', minWidth: 250, minHeight: 175}}>
 								<CardContent><CircularProgress /></CardContent>
-							</Card>						</Grid>
+							</Card>
+						</Grid>
 					</Grid>
 					<Button variant="contained"
 							color={this.state.hasSubmitted ? this.state.submitSuccess ? "success" : "error" : "primary"}>
