@@ -16,6 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
 
 
 class App extends React.Component {
@@ -103,29 +104,33 @@ class App extends React.Component {
         let imgUrl = this.getImgURL();
 
         if (this.state.user == null) {
+            // if not logged in, render the login page
             return (
                 <div className="App">
-                    <FormControl sx={{m:1, minWidth: 100}}>
-                        <InputLabel>User</InputLabel>
-                        <Select
-                            labelStyle = {{color: "#61dafb"}}
-                            value={this.state.user}
-                            label="User"
-                            onChange={this.handleUserChange}
-                        >
-                            <MenuItem value={"HL"}>HL</MenuItem>
-                            <MenuItem value={"JV"}>JV</MenuItem>
-                            <MenuItem value={"LW"}>LW</MenuItem>
-                            <MenuItem value={"NK"}>NK</MenuItem>
-                            <MenuItem value={"RL"}>RL</MenuItem>
-                            <MenuItem value={"WQ"}>WQ</MenuItem>
-                            <MenuItem value={"YH"}>YH</MenuItem>
-                            <MenuItem value={"ZZ"}>ZZ</MenuItem>
-                        </Select>
-                    </FormControl>
+                    <Box sx={{backgroundColor: "#385e80"}}>
+                        <FormControl sx={{m:1, minWidth: 100}}>
+                            <InputLabel>User</InputLabel>
+                            <Select
+                                labelStyle = {{color: "#61dafb"}}
+                                value={this.state.user}
+                                label="User"
+                                onChange={this.handleUserChange}
+                            >
+                                <MenuItem value={"HL"}>HL</MenuItem>
+                                <MenuItem value={"JV"}>JV</MenuItem>
+                                <MenuItem value={"LW"}>LW</MenuItem>
+                                <MenuItem value={"NK"}>NK</MenuItem>
+                                <MenuItem value={"RL"}>RL</MenuItem>
+                                <MenuItem value={"WQ"}>WQ</MenuItem>
+                                <MenuItem value={"YH"}>YH</MenuItem>
+                                <MenuItem value={"ZZ"}>ZZ</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
                 </div>
             );
         } else {
+            // if `user` state is set then render the application
             return (
                 <div className="App">
                     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
