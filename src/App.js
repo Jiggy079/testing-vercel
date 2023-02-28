@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Figure from "./Figure";
 import Questions from "./Questions";
+import Header from "./Header";
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -31,6 +32,7 @@ class App extends React.Component {
         this.changeFigure = this.changeFigure.bind(this);
         this.updateFigure = this.updateFigure.bind(this);
         this.login = this.login.bind(this);
+        this.logout = this.logout.bind(this);
         this.handleUserChange = this.handleUserChange.bind(this);
     }
 
@@ -94,6 +96,10 @@ class App extends React.Component {
         this.setState({user: user});
     }
 
+    logout() {
+        this.setState({user: null});
+    }
+
     handleUserChange(event) {
         this.setState({user: event.target.value});
     }
@@ -133,6 +139,7 @@ class App extends React.Component {
             // if `user` state is set then render the application
             return (
                 <div className="App">
+                    <Header callbackFunc={this.logout} />
                     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
                         <Button variant="contained"
                                 onClick={() => this.changeFigure(false)}>
