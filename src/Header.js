@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
+import "./Header.css";
 
 function Header ({callbackFunc}) {
 	return (
