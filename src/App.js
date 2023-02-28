@@ -138,23 +138,25 @@ class App extends React.Component {
         } else {
             // if `user` state is set then render the application
             return (
-                <Header callbackFunc={this.logout} />
-                <div className="App">
-                    <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
-                        <Button variant="contained"
-                                onClick={() => this.changeFigure(false)}>
-                                {<NavigateBeforeIcon />}
-                        </Button>
-                        <Figure imgUrl={imgUrl}
-                                currentFigureIndex={this.state.currentFigureIndex}
-                                currentFigureMetadata={figureInfo}/>
-                        <Button variant="contained"
-                                onClick={() => this.changeFigure(true)}>
-                                {<NavigateNextIcon />}
-                        </Button>
-                        <Divider orientation="vertical" flexItem />
-                        <Questions figureID={this.state.currentFigureIndex} />
-                    </Stack>
+                <div>
+                    <Header callbackFunc={this.logout} />
+                    <div className="App">
+                        <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
+                            <Button variant="contained"
+                                    onClick={() => this.changeFigure(false)}>
+                                    {<NavigateBeforeIcon />}
+                            </Button>
+                            <Figure imgUrl={imgUrl}
+                                    currentFigureIndex={this.state.currentFigureIndex}
+                                    currentFigureMetadata={figureInfo}/>
+                            <Button variant="contained"
+                                    onClick={() => this.changeFigure(true)}>
+                                    {<NavigateNextIcon />}
+                            </Button>
+                            <Divider orientation="vertical" flexItem />
+                            <Questions figureID={this.state.currentFigureIndex} />
+                        </Stack>
+                    </div>
                 </div>
             );
         }
