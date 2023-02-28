@@ -5,3 +5,7 @@
     max-width: 100%;
     min-height: fit-content;
 }
+
+.logoutButton {
+    margin: 5px;
+}

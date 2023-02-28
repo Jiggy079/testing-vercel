@@ -5,7 +5,7 @@ import "./Header.css";
 function Header ({callbackFunc}) {
 	return (
 		<div className="header-div">
-			<Button variant="contained" onClick={callbackFunc}>Log out</Button>
+			<Button className="logoutButton" variant="contained" onClick={callbackFunc}>Log out</Button>
 		</div>
 	);
 }
