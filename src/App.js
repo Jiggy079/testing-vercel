@@ -138,8 +138,8 @@ class App extends React.Component {
         } else {
             // if `user` state is set then render the application
             return (
+                <Header callbackFunc={this.logout} />
                 <div className="App">
-                    <Header callbackFunc={this.logout} />
                     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
                         <Button variant="contained"
                                 onClick={() => this.changeFigure(false)}>
